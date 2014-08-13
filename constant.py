@@ -269,7 +269,7 @@ class ConstantInvokeDynamic(Constant):
         if hasattr(self, 'value'):
             return
         name_and_type = self.constant_pool[self.name_and_type_index]
-        assert isinstance(name_and_type, ConstantNameAndType) or name_and_type is None
+        assert isinstance(name_and_type, ConstantNameAndType) or isinstance(name_and_type, ConstantClassref) or name_and_type is None
         self.name_and_type = name_and_type and name_and_type.value
         self.value = (self.bootstrap_method_attr_index, self.name_and_type)
 
